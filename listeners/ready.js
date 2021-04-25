@@ -81,7 +81,7 @@ module.exports = async function onReady() {
                 }
             })
             // Responde a menssagem com um inline reply
-            return await new WebhookClient(this.user.id, interaction.token).send(`Websocket: ${this.ws.ping}ms`)
+            return await new WebhookClient(this.user.id, interaction.token).send(`<:2690chart:832746523980201994> ⇝ Ping: ${this.ws.ping}ms`)
         }
     })
 }
