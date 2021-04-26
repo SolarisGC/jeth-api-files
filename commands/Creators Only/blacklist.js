@@ -40,7 +40,7 @@ module.exports = class blacklist extends Command {
             .setColor("BLACK")
             .addField('<:pepe:651487933148299291> **Staffer:**', `${message.author.username}`)
             .addField('📝 Motivo:', `${reason}`)
-            .setFooter('https://discordapp.com/guidelines 🥶')
+            .setFooter('https://discordapp.com/guidelines・Discord da Jeth 🛠')
             .setTimestamp(new Date());
 
         let warnembed14 = new MessageEmbed()

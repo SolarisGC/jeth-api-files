@@ -22,11 +22,11 @@ module.exports = class strike extends Command {
                 const strike = new MessageEmbed()
 
                     .setThumbnail(user.displayAvatarURL({ dynamic: true, size: 1024 }))
-                    .setTitle('Segurança | Strike')
-                    .setColor('#6353f8')
-                    .setDescription(`\n<:Kaeltec:673592197177933864> **Staff:** ${message.author.username} \n**ID:** ${message.author.id}` + `\n<:Kaeltec:673592197177933864> **Infrator:** ${user.username} \n**ID:** ${user.id}`)
-                    .setImage(`https://i.imgur.com/agmg3jg.png`)
-                    .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
+                    .setTitle('System | Trust & Safety')
+                    .setColor(colors.default)
+                    .setDescription(`\n\n<:9461systemmessageuser:832746523758166088>O Discord é focado em manter um conteúdo seguro e confiável para nossa comunidade, e sua conta foi sinalizada pela comunidade do Discord por violar nossas Diretrizes da Comunidade.\n<:Kaeltec:673592197177933864> **Staff:** ${message.author.username} \n**ID:** ${message.author.id}` + `\n<:Kaeltec:673592197177933864> **Infrator:** ${user.username} \n**ID:** ${user.id}`)
+                    .setImage(`https://miro.medium.com/max/3200/0*SCBRci_mo1Yhc9km`)
+                    .setFooter("https://discordapp.com/guidelines・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
                     .setTimestamp(new Date());
                 userDB.strike += 1
                 userDB.save().then(() => message.channel.send(strike))
