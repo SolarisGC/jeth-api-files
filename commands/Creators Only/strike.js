@@ -36,6 +36,7 @@ module.exports = class strike extends Command {
                     userDB.save().then(() => message.channel.send(`O usuário \`${user.tag}\` foi adicionado da blacklist.`))
                 }
                 message.channel.send(`O usuário \`${user.tag}\` acabou levando strike (${userDB.strike}))`)
+                user.send('Olá, \n\nO Discord é focado em manter um conteúdo seguro e confiável para nossa comunidade, e sua conta foi sinalizada pela comunidade do Discord por violar nossas Diretrizes da Comunidade.\n\nSinceramente,\nDiscord Trust & Safety Team')
             }
                 break
             case "remove": {
