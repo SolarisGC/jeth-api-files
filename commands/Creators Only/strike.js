@@ -41,7 +41,7 @@ module.exports = class strike extends Command {
             case "remove": {
                 let user = await this.client.users.fetch(args[1])
                 let userDB = await this.client.database.Users.findById(user.id)
-                message.channel.send(`${user} Teve seu strike removido! <:a_blobnomstaff:754934349295779912>`)
+                message.channel.send(`${user.tag} Teve seu strike removido! <:a_blobnomstaff:754934349295779912>`)
                 userDB.strike -= 1
                 userDB.save()
                 if (userDB.strike < 3) {
