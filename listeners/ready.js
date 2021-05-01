@@ -105,8 +105,6 @@ module.exports = async function onReady() {
             }
         })
         // Responde a menssagem com um inline reply
-        let user = message.mentions.users.first();
-        if (!user) return message.reply('`Você não mencionou o usuario que você quer batalhar!`').catch(console.error);
         const v = "<@" + message.author.id + ">"
         const v2 = " <@" + user.id + ">"
         let gifs = ['https://2.bp.blogspot.com/-JvzopHO87T8/V4VKL4PX_GI/AAAAAAAAEWA/-Rx2XKmOT28lElnlMUaOpn22FAuKdJA4wCLcB/s640/tumblr_o49dvpBamW1vont75o1_500.gif', 'https://pa1.narvii.com/6668/62e28e9e256f3003fc4078f5aeaac99aefec1d8e_hq.gif', 'https://media1.tenor.com/images/4bb385101ff94e863ddef445ce2cc732/tenor.gif?itemid=18523359', 'https://media1.tenor.com/images/304bff8e43185ab3dfcd6424bd2be8fd/tenor.gif?itemid=18523137', 'https://pa1.narvii.com/6562/3a7a5cdcf9b84afb206a65a3d99d3d3c11447088_hq.gif', 'https://i.pinimg.com/originals/3c/40/7c/3c407c8f18f779df549c30fa0e56f835.gif', 'https://i.pinimg.com/originals/20/8e/f9/208ef916f5998629b0face475c12e241.gif', 'https://thumbs.gfycat.com/FickleForcefulBlobfish-max-1mb.gif', 'https://media3.giphy.com/media/h3Jxu7a7pd72w/giphy.gif', 'https://data.whicdn.com/images/301514445/original.gif']
