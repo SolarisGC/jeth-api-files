@@ -105,7 +105,7 @@ module.exports = async function onReady() {
             .setTitle('**Err:**', `${message.author}`, true)
             .setDescription('Missing Permissions') // inline false
             .addField('*Verifique se você possui a permissão:*', '`MANAGE_GUILD`', true)
-            .setFooter('🧁・Discord da Jeth', message.guild.displayAvatarURL())
+            .setFooter('🧁・Discord da Jeth', message.guild.iconURL())
         if (!message.member.hasPermission('MANAGE_GUILD'))
             return message.channel.send(embedA)
         let guildDocument = await this.client.database.Guilds.findById(message.guild.id)
