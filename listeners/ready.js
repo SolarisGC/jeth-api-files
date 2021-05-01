@@ -87,14 +87,6 @@ module.exports = async function onReady() {
         }
     })
     // novo comando
-    module.exports = class hvh extends Command {
-        constructor(name, client) {
-            super(name, client)
-    
-            this.aliases = ['fight']
-            this.category = 'Entertainment'
-        }
-        async run(message, args) {
     this.ws.on("INTERACTION_CREATE", async (interaction, message) => {
         // Faço os comandos aqui
         const command = interaction.data.name.toLowerCase()
@@ -133,5 +125,3 @@ module.exports = async function onReady() {
             
             })
         }
-    }
-}
