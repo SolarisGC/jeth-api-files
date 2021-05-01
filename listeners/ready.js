@@ -105,7 +105,15 @@ module.exports = async function onReady() {
             }
         })
         // Responde a menssagem com um inline reply
-        let user = message.mentions.user.first();
+        module.exports = class hvh extends Command {
+            constructor(name, client) {
+                super(name, client)
+        
+                this.aliases = ['fight']
+                this.category = 'Entertainment'
+            }
+        async run(message, args) {
+        let user = message.mentions.users.first();
         if (!user) return message.reply('`Você não mencionou o usuario que você quer batalhar!`').catch(console.error);
         const v = "<@" + message.author.id + ">"
         const v2 = " <@" + user.id + ">"
@@ -120,7 +128,9 @@ module.exports = async function onReady() {
             .setTimestamp()
             .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
         message.channel.send(embedB)
-    }
+        }
         //fim do comando
+            }
+         }
     })
 }
