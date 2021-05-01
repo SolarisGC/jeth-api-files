@@ -63,7 +63,12 @@ module.exports = async function onReady() {
             description: "[ 🌐 • Miscellaneous ] Mostra a latência da API."
         }
     })
-
+    this.api.applications(this.user.id).commands.post({
+        data: {
+            name: "ajuda",
+            description: "[ 📝 • Miscellaneous ] Exibe a lista de comandos da aplicação."
+        }
+    })
 
     this.ws.on("INTERACTION_CREATE", async (interaction) => {
         // Faço os comandos aqui
@@ -94,27 +99,17 @@ module.exports = async function onReady() {
         const args = interaction.data.options
 
         if (command === 'ajuda') {
-        // Responde a menssagem com um inline reply
-        module.exports = class Ajuda extends Command {
-            constructor(name, client) {
-                super(name, client)
-        
-                this.aliases = ['ajudante', 'help', 'comandos']
-                this.category = 'Miscellaneous'
-                this.subcommandsOnly = false
-            }
-        
-            async run(message, args) {
-                this.api.interactions(interaction.id, interaction.token).callback.post({
-                    data: {
-                        type: 5
-                        //data: {
-                            // Caso queira um slash que so author possa ver deixe habilitado
-                            //flags: 1 << 6
-                        //}
-                    }
-                })
-
+            // Infelizmente tem que ter a bosta do if
+            this.api.interactions(interaction.id, interaction.token).callback.post({
+                data: {
+                    type: 5
+                    //data: {
+                        // Caso queira um slash que so author possa ver deixe habilitado
+                        //flags: 1 << 6
+                    //}
+                }
+            })
+        // roda o comando
                 let documento = await this.client.database.Guilds.findById(message.guild.id)
                 let prefix = documento.prefix
                 
@@ -138,15 +133,12 @@ module.exports = async function onReady() {
                     message.reply("<a:rb_mod:759648839417200661> Erro, verifique se eu consigo te enviar mensagens no privado!")
                 })
             }
-            getCategory(category, prefix) {
-                return this.client.commands.filter(c => c.category === category).map(c => `\`${prefix}${c.name}\``).join(", ")
-            }
-        
-            getCommmandSize(category) {
-                return this.client.commands.filter(c => c.category === category).size
-            }
+            getCategory(category, prefix)
+             this.client.commands.filter(c => c.category === category).map(c => `\`${prefix}${c.name}\``).join(", ")
             
-         }
-        }
-    })
-}
+        
+            getCommmandSize(category)
+             this.client.commands.filter(c => c.category === category).size
+            
+        })           
+    }
