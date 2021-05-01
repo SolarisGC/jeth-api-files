@@ -111,11 +111,10 @@ module.exports = async function onReady() {
         let question = args.join(" ");
 
         let ballembed = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag)
             .setColor(colors.default)
             .addField('Questão', question)
             .addField("Resposta", replies[result])
-            .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
+            .setFooter("🧁・Discord da Jeth")
             .setTimestamp()
             return await new WebhookClient(this.user.id, interaction.token).send(ballembed);
         }
