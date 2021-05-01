@@ -87,6 +87,14 @@ module.exports = async function onReady() {
         }
     })
     // novo comando
+    module.exports = class hvh extends Command {
+        constructor(name, client) {
+            super(name, client)
+    
+            this.aliases = ['fight']
+            this.category = 'Entertainment'
+        }
+        async run(message, args) {
     this.ws.on("INTERACTION_CREATE", async (interaction, message) => {
         // Faço os comandos aqui
         const command = interaction.data.name.toLowerCase()
@@ -105,14 +113,6 @@ module.exports = async function onReady() {
             }
         })
         // Responde a menssagem com um inline reply
-        module.exports = class hvh extends Command {
-            constructor(name, client) {
-                super(name, client)
-        
-                this.aliases = ['fight']
-                this.category = 'Entertainment'
-            }
-        async run(message, args) {
         let user = message.mentions.users.first();
         if (!user) return message.reply('`Você não mencionou o usuario que você quer batalhar!`').catch(console.error);
         const v = "<@" + message.author.id + ">"
@@ -130,7 +130,8 @@ module.exports = async function onReady() {
             return await new WebhookClient(this.user.id, interaction.token).send(embedB)
         }
         //fim do comando
-            }
-         }
-    })
+            
+            })
+        }
+    }
 }
