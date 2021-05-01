@@ -97,7 +97,16 @@ module.exports = async function onReady() {
                     //}
                 }
             })
-
+                  
+            module.exports = class anuncio extends Command {
+                constructor(name, client) {
+                    super(name, client)
+            
+                    this.aliases = ['anunciar', 'anunciment']
+                    this.category = 'Moderation'
+                }
+            
+            async run(message, args) {
             const embedA = new MessageEmbed()
 
             .setTimestamp()
@@ -105,7 +114,7 @@ module.exports = async function onReady() {
             .setTitle('**Err:**', `${message.author}`, true)
             .setDescription('Missing Permissions') // inline false
             .addField('*Verifique se você possui a permissão:*', '`MANAGE_GUILD`', true)
-            .setFooter('🧁・Discord da Jeth', message.guild.iconURL())
+            .setFooter('🧁・Discord da Jeth', message.author.displayAvatarURL())
         if (!message.member.hasPermission('MANAGE_GUILD'))
             return message.channel.send(embedA)
         let guildDocument = await this.client.database.Guilds.findById(message.guild.id)
@@ -270,6 +279,8 @@ module.exports = async function onReady() {
                 })
             })
           }
+        }
+            }
         }
     })
 }
