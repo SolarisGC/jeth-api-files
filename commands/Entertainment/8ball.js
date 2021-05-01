@@ -5,7 +5,7 @@ module.exports = class Eightball extends Command {
     constructor(name, client) {
         super(name, client)
 
-        this.aliases = []
+        this.aliases = ['cristal']
         this.category = 'Entertainment'
     }
     async run(message, args) {
