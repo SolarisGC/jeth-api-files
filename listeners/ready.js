@@ -60,7 +60,7 @@ module.exports = async function onReady() {
     this.api.applications(this.user.id).commands.post({
         data: {
             name: "ping",
-            description: "Mostra o ping do bot;"
+            description: "[ 🌐 • Miscellaneous ] Mostra a latência da API."
         }
     })
 
