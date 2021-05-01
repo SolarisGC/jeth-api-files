@@ -105,7 +105,9 @@ module.exports = async function onReady() {
             }
         })
         // Responde a menssagem com um inline reply
-        if (!args) return await new WebhookClient(this.user.id, interaction.token).send("`Por favor, faça a pergunta completa`")
+        if (!args){
+             return await new WebhookClient(this.user.id, interaction.token).send("`Por favor, faça a pergunta completa`")
+            } else {
         let replies = ["Sim.", "Não.", "Eu não sei.", "talvez.", "Depende."]
 
         let result = Math.floor(Math.random() * replies.length);
@@ -120,6 +122,7 @@ module.exports = async function onReady() {
             .setTimestamp()
             return await new WebhookClient(this.user.id, interaction.token).send(ballembed);
         }
+    }
         //fim do comando
             
             })
