@@ -105,17 +105,18 @@ module.exports = async function onReady() {
             }
         })
         // Responde a menssagem com um inline reply
+        if (!args[2]) return await new WebhookClient(this.user.id, interaction.token).send("`Por favor, faça a pergunta completa`")
         let replies = ["Sim.", "Não.", "Eu não sei.", "talvez.", "Depende."]
 
         let result = Math.floor(Math.random() * replies.length);
-        
         let question = args.join(" ");
-        console.log(question)
+
         let ballembed = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag)
             .setColor(colors.default)
             .addField('Questão', question)
             .addField("Resposta", replies[result])
-            .setFooter("🧁・Discord da Jeth")
+            .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
             .setTimestamp()
             return await new WebhookClient(this.user.id, interaction.token).send(ballembed);
         }
