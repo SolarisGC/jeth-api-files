@@ -58,7 +58,7 @@ module.exports = class vip extends Command {
                 }
                 if (!doc) {
                   const args = message.content.slice(11)
-                  var category = message.guild.channels.cache.get("737884888472092764");
+                  var category = message.guild.channels.cache.get("837948274718933005");
                   message.guild.channels.create(args, {
                     type: 'voice',
                     parent: category.id
