@@ -98,12 +98,12 @@ module.exports = async function onReady() {
                 }
             })
                   
-            module.exports = class anuncio extends Command {
+            module.exports = class Contador extends Command {
                 constructor(name, client) {
                     super(name, client)
             
-                    this.aliases = ['anunciar', 'anunciment']
-                    this.category = 'Moderation'
+                    this.aliases = ['count', 'counter']
+                    this.category = 'Animated Counter'
                 }
             
             async run(message, args) {
