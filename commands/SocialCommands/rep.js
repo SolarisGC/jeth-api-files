@@ -7,7 +7,7 @@ module.exports = class Registrou extends Command {
         super(name, client)
 
         this.aliases = []
-        this.category = 'Social Commands'
+        this.category = 'SocialCommands'
         this.subcommandsOnly = false
     }
 

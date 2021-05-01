@@ -5,7 +5,7 @@ module.exports = class dbclear extends Command {
         super(name, client)
 
         this.aliases = ['limpardb', 'dblimpar']
-        this.category = 'Creators Only'
+        this.category = 'CreatorsOnly'
         this.adminOnly = true
     }
 

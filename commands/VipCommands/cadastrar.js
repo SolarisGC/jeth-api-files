@@ -7,7 +7,7 @@ module.exports = class cadastrar extends Command {
         super(name, client)
 
         this.aliases = ['cadastrar']
-        this.category = 'Vip Commands'
+        this.category = 'VipCommands'
         this.adminOnly = true
     }
 

@@ -6,7 +6,7 @@ module.exports = class Contador extends Command {
         super(name, client)
 
         this.aliases = ['count', 'counter']
-        this.category = 'Animated Counter'
+        this.category = 'AnimatedCounter'
     }
 
     async run(message, args) {

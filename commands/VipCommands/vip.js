@@ -6,7 +6,7 @@ module.exports = class vip extends Command {
     super(name, client)
 
     this.aliases = ['premium']
-    this.category = 'Vip Commands'
+    this.category = 'VipCommands'
   }
 
   async run(message, args) {

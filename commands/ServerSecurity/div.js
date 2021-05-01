@@ -6,7 +6,7 @@ module.exports = class div extends Command {
         super(name, client)
 
         this.aliases = ['antidiv', 'anticonvite']
-        this.category = 'Server Security'
+        this.category = 'ServerSecurity'
     }
 
     async run(message, args) {

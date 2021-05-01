@@ -6,7 +6,7 @@ module.exports = class setcargo extends Command {
         super(name, client)
 
         this.aliases = ['setvip', 'darvip', 'setarvip']
-        this.category = 'Vip Commands'
+        this.category = 'VipCommands'
     }
 
     async run(message, args) {
