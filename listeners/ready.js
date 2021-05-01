@@ -105,7 +105,6 @@ module.exports = async function onReady() {
             }
         })
         // Responde a menssagem com um inline reply
-        if (!args[2]) return message.reply("`Por favor, faça a pergunta completa`")
         let replies = ["Sim.", "Não.", "Eu não sei.", "talvez.", "Depende."]
 
         let result = Math.floor(Math.random() * replies.length);
