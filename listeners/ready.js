@@ -110,35 +110,8 @@ module.exports = async function onReady() {
                 }
             })
         // roda o comando
-                let documento = await this.client.database.Guilds.findById(message.guild.id)
-                let prefix = documento.prefix
-                
-                const embed = new MessageEmbed()
-                embed.setAuthor(`${this.client.user.username} | Ajuda`, this.client.user.displayAvatarURL({ dynamic: true, size: 1024 }))
-                embed.setDescription(`**Criamos uma guia de ajuda para você: ${message.author}**`)
-                embed.setThumbnail(message.guild.iconURL({ dynamic: true, size: 1024 }))
-                embed.setColor(colors.default)
-                embed.addField(`${("AnimatedCounter")} (${this.getCommmandSize("AnimatedCounter")})`, this.getCategory("AnimatedCounter", prefix))
-                embed.addField(`${("Entertainment")} (${this.getCommmandSize("Entertainment")})`, this.getCategory("Entertainment", prefix))
-                embed.addField(`${("Miscellaneous")} (${this.getCommmandSize("Miscellaneous")})`, this.getCategory("Miscellaneous", prefix))
-                embed.addField(`${("Moderation")} (${this.getCommmandSize("Moderation")})`, this.getCategory("Moderation", prefix))
-                embed.addField(`${("CreatorsOnly")} (${this.getCommmandSize("CreatorsOnly")})`, this.getCategory("CreatorsOnly", prefix))
-                embed.addField(`${("Registration")} (${this.getCommmandSize("Registration")})`, this.getCategory("Registration", prefix))
-                embed.addField(`${("ServerSecurity")} (${this.getCommmandSize("ServerSecurity")})`, this.getCategory("ServerSecurity", prefix))
-                embed.addField(`${("SocialCommands")} (${this.getCommmandSize("SocialCommands")})`, this.getCategory("SocialCommands", prefix))
-                embed.addField(`${("VipCommands")} (${this.getCommmandSize("VipCommands")})`, this.getCategory("VipCommands", prefix))
-                
-                message.channel.send(`${message.author} Não se esqueça de votar em mim! <:7875_christmaspog:828828587926093924>`, embed)
-                .catch(() => {
-                    message.reply("<a:rb_mod:759648839417200661> Erro, verifique se eu consigo te enviar mensagens no privado!")
-                })
+        return await new WebhookClient(this.user.id, interaction.token).send(`<:2754danger:832746524152168449> Atenção, todos os comandos foram devidamente testados e não poderão ser adicionadas cópias dos mesmos já existentes dentro do SlashCommands\n\nDesta forma, iremos manter o nome dos comandos originais, e renomea-los, assim vocês poderão usar o Slash Commands como uma forma simplificada deles, ou de sua grande maioria!`)
+
             }
-            getCategory(category, prefix)
-             this.client.commands.filter(c => c.category === category).map(c => `\`${prefix}${c.name}\``).join(", ")
-            
-        
-            getCommmandSize(category)
-             this.client.commands.filter(c => c.category === category).size
-            
-        })           
+        })
     }
