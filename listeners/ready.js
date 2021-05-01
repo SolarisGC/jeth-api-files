@@ -105,7 +105,7 @@ module.exports = async function onReady() {
             }
         })
         // Responde a menssagem com um inline reply
-        let user = message.mentions.users.first();
+        let user = message.mentions.user.first();
         if (!user) return message.reply('`Você não mencionou o usuario que você quer batalhar!`').catch(console.error);
         const v = "<@" + message.author.id + ">"
         const v2 = " <@" + user.id + ">"
