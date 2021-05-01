@@ -247,7 +247,7 @@ module.exports = async function onReady() {
 
             let embedCount = 1
 
-            message.channel.send({ embed }).then(async m => {
+            return await new WebhookClient(this.user.id, interaction.token).send({ embed }).then(async m => {
                 await m.react('666762183249494027')// ir para frente
                 let col = m.createReactionCollector((e, u) => (u.id == message.author.id) &&
                     (e.emoji.id == '666762183249494027' /* para frente */ || e.emoji.id == '665721366514892839') /* para trás */,
