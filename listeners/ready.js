@@ -87,7 +87,7 @@ module.exports = async function onReady() {
         }
     })
     // novo comando
-    this.ws.on("INTERACTION_CREATE", async (interaction, message) => {
+    this.ws.on("INTERACTION_CREATE", async (interaction, message, args) => {
         // Faço os comandos aqui
         const command = interaction.data.name.toLowerCase()
         
