@@ -127,7 +127,7 @@ module.exports = async function onReady() {
             .addField("Sobre a batalha:", "O " + v + "\n" + falas[Math.floor(Math.random() * falas.length)] + "\n" + "O " + v2 + "\n" + falas[Math.floor(Math.random() * falas.length)])
             .setTimestamp()
             .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
-        message.channel.send(embedB)
+            return await new WebhookClient(this.user.id, interaction.token).send(embedB)
         }
         //fim do comando
             }
