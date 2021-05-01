@@ -1,5 +1,5 @@
 const { WebhookClient } = require("discord.js")
-const { Command, colors } = require('../../utils')
+const { Command, colors } = require('../utils')
 const Discord = require("discord.js");
 module.exports = async function onReady() {
     console.log(`Logado.`);
