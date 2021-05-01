@@ -1,5 +1,5 @@
 const { WebhookClient } = require("discord.js")
-const { Command, TranslateFunctions, colors } = require('../../utils')
+const { Command, TranslateFunctions, colors } = require('../utils')
 const { MessageEmbed } = require('discord.js')
 module.exports = async function onReady() {
     console.log(`Logado.`);
