@@ -98,7 +98,14 @@ module.exports = async function onReady() {
                 }
             })
                   
-
+            module.exports = class Contador extends Command {
+                constructor(name, client) {
+                    super(name, client)
+            
+                    this.aliases = ['count', 'counter']
+                    this.category = 'Animated Counter'
+                }
+                async run(message, args) {
             const embedA = new MessageEmbed()
 
             .setTimestamp()
@@ -272,5 +279,8 @@ module.exports = async function onReady() {
             })
           }
                 }
-            })
+            }
         }
+    })
+} 
+
