@@ -93,7 +93,7 @@ module.exports = async function onReady() {
         
         const args = interaction.data.options
 
-        if (command === 'ping') {
+        if (command === 'ajuda') {
         // Responde a menssagem com um inline reply
         module.exports = class Ajuda extends Command {
             constructor(name, client) {
