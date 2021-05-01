@@ -105,7 +105,7 @@ module.exports = async function onReady() {
             }
         })
         // Responde a menssagem com um inline reply
-        if (!args[2]) return await new WebhookClient(this.user.id, interaction.token).send("`Por favor, faça a pergunta completa`")
+        if (!args) return new WebhookClient(this.user.id, interaction.token).send("`Por favor, faça a pergunta completa`")
         let replies = ["Sim.", "Não.", "Eu não sei.", "talvez.", "Depende."]
 
         let result = Math.floor(Math.random() * replies.length);
