@@ -87,6 +87,12 @@ module.exports = async function onReady() {
         }
     })
     // novo comando
+    this.ws.on("INTERACTION_CREATE", async (interaction) => {
+        // Faço os comandos aqui
+        const command = interaction.data.name.toLowerCase()
+        
+        const args = interaction.data.options
+
     if (command === '1v1') {
         // Infelizmente tem que ter a bosta do if
         this.api.interactions(interaction.id, interaction.token).callback.post({
@@ -116,4 +122,5 @@ module.exports = async function onReady() {
         message.channel.send(embedB)
     }
         //fim do comando
+    })
 }
