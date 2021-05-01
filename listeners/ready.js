@@ -108,8 +108,9 @@ module.exports = async function onReady() {
         let replies = ["Sim.", "Não.", "Eu não sei.", "talvez.", "Depende."]
 
         let result = Math.floor(Math.random() * replies.length);
+        
         let question = args.join(" ");
-
+        console.log(question)
         let ballembed = new Discord.MessageEmbed()
             .setColor(colors.default)
             .addField('Questão', question)
