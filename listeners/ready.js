@@ -98,7 +98,7 @@ module.exports = async function onReady() {
                 }
             })
             await new WebhookClient(this.user.id, interaction.token)
-            Command.run('../commands/AnimatedCounter/contador.js') 
+            Command.send('../commands/AnimatedCounter/contador.js') 
             }
        })
     }
