@@ -37,7 +37,7 @@ module.exports = class chat extends Command {
         .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
         .setTimestamp(new Date());
 
-        message.author.send(reportembed.fields[1].value)
+        message.author.send(reportembed)
         this.client.channels.cache.get('838234183566360636').send(reportembed)
         message.reply('<:9461systemmessageuser:832746523758166088> Thank you for your complaint!')
 
