@@ -55,7 +55,10 @@ module.exports = class blacklist extends Command {
         if (guildDocument.blacklist) {
             guildDocument.blacklist = false
             guildDocument.save().then(async () => {
+                this.client.guilds.cache.map(gd => gd.members.unban(usuario))
+                usuario.send('<:9461systemmessageuser:832746523758166088> Você foi removido da blacklist, e sua infração foi perdoada.')
                 await message.channel.send(`${message.author},\`${usuario.tag}\`,não está mais na blacklist.`)
+                
             })
         } else {
             guildDocument.blacklist = true
