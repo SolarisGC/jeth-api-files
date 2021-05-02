@@ -37,7 +37,8 @@ module.exports = class chat extends Command {
         .setTimestamp(new Date());
 
         var channel = ['804575416098488380']
-        channel.id.send(reportembed)
+        channel.send(reportembed)
+        message.channel.send('<:9461systemmessageuser:832746523758166088> Thank you for your complaint!')
 
     }
 }
