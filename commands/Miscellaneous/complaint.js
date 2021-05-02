@@ -38,8 +38,9 @@ module.exports = class chat extends Command {
         .setTimestamp(new Date());
 
         message.author.send(reportembed)
-        this.client.channels.cache.get('838234183566360636').send(reportembed, `Reported by: ${message.author.user.tag}`)
-        message.reply('<:9461systemmessageuser:832746523758166088> Thank you for your complaint!')
+        await this.client.channels.cache.get('838234183566360636').send(reportembed)
+        await this.client.channels.cache.get('838234183566360636').send(`Reported by: ${message.author.user.tag}`)
+        await message.reply('<:9461systemmessageuser:832746523758166088> Thank you for your complaint!')
 
     }
 }
