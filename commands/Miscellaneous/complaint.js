@@ -17,9 +17,21 @@ module.exports = class chat extends Command {
         if(!reason) message.reply('<:2715shield:832746524416278578> Sua denúncia requer mais provas e um motivo especificado!')
         if (!user) return message.reply("eu procurei, procurei, e não achei este usuário")
 
+        // gera o ID da denuncia aleatoriamente
+        function makeid(length) {
+            var result           = [];
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result.push(characters.charAt(Math.floor(Math.random() * 
+         charactersLength)));
+           }
+           return result.join('');
+        }
+
         const reportembed = new Discord.MessageEmbed()
         .setThumbnail(user.user.displayAvatarURL({ dynamic: true, size: 1024 }))
-        .setDescription(`To attach proofs of your report please copy your private code sent to your DM and send the attachments to our Trust & Safety team with your code. \n\nUser: *${user.tag}*\nReason: *${reason}*`, message.author.avatarURL({ dynamic: true, size: 1024 }))
+        .setDescription(`To attach proofs of your report please copy your private code sent to your DM and send the attachments to our Trust & Safety team with your code. \n\nUser: *${user.tag}*\nReason: *${reason}*\n\n*Complaint ID: ${makeid(5)}*`, message.author.avatarURL({ dynamic: true, size: 1024 }))
         .setColor(colors.mod)
         .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
         .setTimestamp(new Date());
