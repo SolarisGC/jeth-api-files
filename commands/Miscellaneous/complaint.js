@@ -15,7 +15,7 @@ module.exports = class chat extends Command {
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
         let reason = args.slice(1).join(" ")
         if(!reason) message.reply('<:2715shield:832746524416278578> Sua denúncia requer mais provas e um motivo especificado!')
-        if (!user) return message.reply("eu procurei, procurei, e não achei este usuário")
+        if(!user) return message.reply("eu procurei, procurei, e não achei este usuário")
 
         // gera o ID da denuncia aleatoriamente
         function makeid(length) {
@@ -36,8 +36,9 @@ module.exports = class chat extends Command {
         .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
         .setTimestamp(new Date());
 
+        message.author.send(reportembed)
         this.client.channels.cache.get('838234183566360636').send(reportembed)
-        message.channel.send('<:9461systemmessageuser:832746523758166088> Thank you for your complaint!')
+        message.reply('<:9461systemmessageuser:832746523758166088> Thank you for your complaint!')
 
     }
 }
