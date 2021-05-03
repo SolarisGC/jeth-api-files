@@ -124,12 +124,12 @@ module.exports = async function onMessage(message) {
             const newGuildDB = new this.database.Guilds({ _id: message.guild.id })
             newGuildDB.save()
             console.log(`${message.guild.name}[${message.guild.id}] adicionado ao banco de dados`)
-            this.channels.cache.get('801265005894697017').send(`**\`\`${message.guild.name}[${message.guild.id}] adicionado ao banco de dados\`\`**`)
+            this.channels.cache.get('831041533469655070').send(`**\`\`${message.guild.name}[${message.guild.id}] adicionado ao banco de dados\`\`**`)
         }
     } else {
         const newGuildDB = new this.database.Users({ _id: message.author.id })
         newGuildDB.save()
         console.log(`${message.author.tag}[${message.author.id}] adicionado ao banco de dados`)
-        this.channels.cache.get('801265005894697017').send(`**\`\`${message.author.tag}[${message.author.id}] adicionado ao banco de dados\`\`**`)
+        this.channels.cache.get('831041533469655070').send(`**\`\`${message.author.tag}[${message.author.id}] adicionado ao banco de dados\`\`**`)
     }
 }
