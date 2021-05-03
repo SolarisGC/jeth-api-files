@@ -34,12 +34,14 @@ module.exports = class CountCall extends Command {
             embed.setColor(colors.default)
             embed.setAuthor(this.client.user.username + ' | Contagem de Membros', this.client.user.displayAvatarURL())
 
-        };
+
         for (const embed of embeds) {
             message.channel.send(embed);
-        };
+
         if (users.length === 0){
         message.channel.send('Talvez aqui não esteja ninguém em call.').then(msg => msg.delete(5000))
     }
+};
+    };
         }
 }
