@@ -38,6 +38,8 @@ module.exports = class CountCall extends Command {
         for (const embed of embeds) {
             message.channel.send(embed);
         };
+        if(!voiceChannels){
         message.channel.send('Talvez aqui não esteja ninguém em call.').then(msg => msg.delete(5000))
     }
+        }
 }
