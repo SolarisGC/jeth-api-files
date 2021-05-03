@@ -21,6 +21,6 @@ module.exports = class Ping extends Command {
         if (!message.member.hasPermission('MANAGE_MESSAGES'))
             return message.channel.send(embedA)
         let mensagem = args.join(" ")
-        message.channel.send(mensagem)
+        message.channel.send(`${mensagem} \n\n<:9461systemmessageuser:832746852633149460> *Mensagem executada por: ${message.author}*`)
     }
 }
