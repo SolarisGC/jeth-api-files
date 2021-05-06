@@ -38,7 +38,7 @@ module.exports = class chat extends Command {
         }
 
         const reportembed = new Discord.MessageEmbed()
-        .setThumbnail(client.user.displayAvatarURL({ dynamic: true, size: 1024 }))
+        .setThumbnail(usuario.user.displayAvatarURL({ dynamic: true, size: 1024 }))
         .setDescription(`To attach proofs of your report please copy your private code sent to your DM and send the attachments to our Trust & Safety team with your code. \n\nUser: *${usuario.user.tag}*\nReason: *${reason}*`, message.author.avatarURL({ dynamic: true, size: 1024 }))
         .addField(`Complaint ID:`, `*${makeid(24)}*`)
         .setColor(colors.mod)
