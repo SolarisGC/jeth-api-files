@@ -12,10 +12,18 @@ module.exports = class chat extends Command {
     }
 
     async run(message, args) {
-        let user = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
         let reason = args.slice(1).join(" ")
         if(!reason) message.reply('<:2715shield:832746524416278578> Sua denúncia requer mais provas e um motivo especificado!')
-        if(!user) return message.reply("eu procurei, procurei, e não achei este usuário")
+        let usuario = await this.client.users.fetch(args[0].replace(/[<@!>]/g, ""))
+        if (!usuario) {
+            message.channel.send('Mencione um membro valido.')
+        }
+        let guildDocument = await this.client.database.Users.findById(usuario.id)
+        if (!guildDocument) {
+            new this.client.database.Users({
+                _id: usuario.id
+            }).save()
+        }
 
         // gera o ID da denuncia aleatoriamente
         function makeid(length) {
