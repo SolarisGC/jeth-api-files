@@ -13,11 +13,7 @@ module.exports = class chat extends Command {
 
     async run(message, args) {
         let reason = args.slice(1).join(" ")
-        if(!reason) message.reply('<:2715shield:832746524416278578> Sua denúncia requer mais provas e um motivo especificado!')
-        let usuario = await this.client.users.fetch(args[0].replace(/[<@!>]/g, ""))
-        if (!usuario) {
-            message.channel.send('Mencione um membro valido.')
-        }
+        if(!reason[4]) message.reply('<:2715shield:832746524416278578> Sua denúncia requer mais provas e um motivo especificado!')
         let guildDocument = await this.client.database.Users.findById(usuario.id)
         if (!guildDocument) {
             new this.client.database.Users({
@@ -38,8 +34,8 @@ module.exports = class chat extends Command {
         }
 
         const reportembed = new Discord.MessageEmbed()
-        .setThumbnail(usuario.user.displayAvatarURL({ dynamic: true, size: 1024 }))
-        .setDescription(`To attach proofs of your report please copy your private code sent to your DM and send the attachments to our Trust & Safety team with your code. \n\nUser: *${usuario.user.tag}*\nReason: *${reason}*`, message.author.avatarURL({ dynamic: true, size: 1024 }))
+        .setThumbnail(this.client.user.displayAvatarURL({ dynamic: true, size: 1024 }))
+        .setDescription(`To attach proofs of your report please copy your private code sent to your DM and send the attachments to our Trust & Safety team with your code. \n\nWhistleblower: *${message.author.tag}*\nViolator/Reason: *${reason}*`, message.author.avatarURL({ dynamic: true, size: 1024 }))
         .addField(`Complaint ID:`, `*${makeid(24)}*`)
         .setColor(colors.mod)
         .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
