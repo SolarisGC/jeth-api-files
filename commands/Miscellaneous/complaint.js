@@ -14,12 +14,6 @@ module.exports = class chat extends Command {
     async run(message, args) {
         let reason = args.slice(1).join(" ")
         if(!reason[4]) message.reply('<:2715shield:832746524416278578> Sua denúncia requer mais provas e um motivo especificado!')
-        let guildDocument = await this.client.database.Users.findById(usuario.id)
-        if (!guildDocument) {
-            new this.client.database.Users({
-                _id: usuario.id
-            }).save()
-        }
 
         // gera o ID da denuncia aleatoriamente
         function makeid(length) {
