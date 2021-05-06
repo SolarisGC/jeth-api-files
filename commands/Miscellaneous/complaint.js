@@ -12,7 +12,7 @@ module.exports = class chat extends Command {
     }
 
     async run(message, args) {
-        let reason = args.slice(1).join(" ")
+        let reason = args.join(" ")
         if(!reason[4]) message.reply('<:2715shield:832746524416278578> Sua denúncia requer mais provas e um motivo especificado!')
 
         // gera o ID da denuncia aleatoriamente
