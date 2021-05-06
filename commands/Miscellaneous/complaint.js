@@ -38,8 +38,8 @@ module.exports = class chat extends Command {
         }
 
         const reportembed = new Discord.MessageEmbed()
-        .setThumbnail(user.user.displayAvatarURL({ dynamic: true, size: 1024 }))
-        .setDescription(`To attach proofs of your report please copy your private code sent to your DM and send the attachments to our Trust & Safety team with your code. \n\nUser: *${user.user.tag}*\nReason: *${reason}*`, message.author.avatarURL({ dynamic: true, size: 1024 }))
+        .setThumbnail(usuario.user.displayAvatarURL({ dynamic: true, size: 1024 }))
+        .setDescription(`To attach proofs of your report please copy your private code sent to your DM and send the attachments to our Trust & Safety team with your code. \n\nUser: *${usuario.user.tag}*\nReason: *${reason}*`, message.author.avatarURL({ dynamic: true, size: 1024 }))
         .addField(`Complaint ID:`, `*${makeid(24)}*`)
         .setColor(colors.mod)
         .setFooter("🧁・Discord da Jeth", message.guild.iconURL({ dynamic: true, size: 1024 }))
