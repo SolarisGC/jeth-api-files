@@ -17,7 +17,7 @@ module.exports = class emoji extends Command {
         function Emoji(id) {
             return this.client.emojis.cache.get(id).toString()
         }
-        this.message.guild.emojis.forEach(emoji => {
+        message.guild.emojis.forEach(emoji => {
             OverallEmojis++;
             if (emoji.animated) {
                 Animated++;
