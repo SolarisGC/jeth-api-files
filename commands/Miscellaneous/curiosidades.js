@@ -26,7 +26,7 @@ const curiosidade = [
     'Os vertebrados mais longevos do mundo são os tubarões da Groenlândia, que podem viver cerca de 400 anos',
 ]
 const curiosidadefinal = curiosidade[Math.floor(Math.random() * curiosidade.length)];
-const embedcuriosidade = new Discord.MessageEmbed()
+const embedcuriosidade = new MessageEmbed()
 .setTitle('🤔 Curiosidades Aleatórias')
 .setColor(colors.default)
 .setTimestamp()
