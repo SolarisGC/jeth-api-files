@@ -1,5 +1,5 @@
 const { Command, colors } = require('../../utils')
-const Discord = require("discord.js");
+const { MessageEmbed } = require('discord.js')
 
 module.exports = class emoji extends Command {
     constructor(name, client) {
@@ -8,29 +8,17 @@ module.exports = class emoji extends Command {
         this.aliases = ['emojis']
         this.category = 'Miscellaneous'
     }
-    async run(client, message, args) {
-        let Emojis = "";
-        let EmojisAnimated = "";
-        let EmojiCount = 0;
-        let Animated = 0;
-        let OverallEmojis = 0;
-        function Emoji(id) {
-            return this.client.emojis.cache.get(id).toString()
+    async run(i, message, args) {
+        const charactersPerMessage = 2000;
+        const emojis = message.guild.emojis.cache.map((e) => `${e} **-** \`:${e.name}:\``).join(', ');
+        const numberOfMessages = Math.ceil(emojis.length / charactersPerMessage);
+        const embed = new MessageEmbed().setTitle(`Emoji List`);
+        for (i = 0; i < numberOfMessages; i++) {
+         message.channel.send(
+          embed.setDescription(
+           emojis.slice(i * charactersPerMessage, (i + 1) * charactersPerMessage)
+          )
+         );
         }
-        message.guild.emojis.forEach(emoji => {
-            OverallEmojis++;
-            if (emoji.animated) {
-                Animated++;
-                EmojisAnimated += Emoji(emoji.id)
-            } else {
-                EmojiCount++;
-                Emojis += Emoji(emoji.id)
-            }
-        })
-        let Embed = new Discord.MessageEmbed()
-            .setTitle(`Emojis em ${message.guild.name}.`)
-            .setDescription(`**Animado [${Animated}]**:\n${EmojisAnimated}\n\nNormais [${EmojiCount}]**:\n${Emojis}\n\n**Total de emojis [${OverallEmojis}]**`)
-            .setColor(colors.default)
-        message.channel.send(Embed)
-    }
+       }
 }
