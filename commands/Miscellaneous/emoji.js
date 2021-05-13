@@ -10,7 +10,7 @@ module.exports = class emoji extends Command {
     }
     async run(i, message, args) {
         const charactersPerMessage = 2000;
-        const emojis = message.guild.emojis.cache.map((e) => `${e} **-** \`:${e.name}:\``).join(', ');
+        const emojis = message.channel.guild.emojis.cache.map((e) => `${e} **-** \`:${e.name}:\``).join(', ');
         const numberOfMessages = Math.ceil(emojis.length / charactersPerMessage);
         const embed = new MessageEmbed().setTitle(`Emoji List`);
         for (i = 0; i < numberOfMessages; i++) {
