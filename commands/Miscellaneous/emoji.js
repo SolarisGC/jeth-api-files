@@ -1,24 +1,44 @@
 const { Command, colors } = require('../../utils')
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed } = require("discord.js");
 
 module.exports = class emoji extends Command {
-    constructor(name, client) {
-        super(name, client)
+  constructor(name, client) {
+    super(name, client)
 
-        this.aliases = ['emojis']
-        this.category = 'Miscellaneous'
+    this.aliases = ['emojis']
+    this.category = 'Miscellaneous'
+    this.subcommandsOnly = false
+  }
+
+  async run(message, args) {  
+    let Emojis = "";
+    let EmojisAnimated = "";
+    let EmojiCount = 0;
+    let Animated = 0;
+    let OverallEmojis = 0;
+    function Emoji(id) {
+        return message.channel.guild.emojis.cache.get(id).toString()
     }
-    async run(i, message, args) {
-        const charactersPerMessage = 2000;
-        const emojis = message.channel.guild.emojis.cache.map((e) => `${e} **-** \`:${e.name}:\``).join(', ');
-        const numberOfMessages = Math.ceil(emojis.length / charactersPerMessage);
-        const embed = new MessageEmbed().setTitle(`Emoji List`);
-        for (i = 0; i < numberOfMessages; i++) {
-         message.channel.send(
-          embed.setDescription(
-           emojis.slice(i * charactersPerMessage, (i + 1) * charactersPerMessage)
-          )
-         );
+    message.channel.guild.emojis.cache.forEach(emoji => {
+        OverallEmojis++;
+        if (emoji.animated) {
+            Animated++;
+            EmojisAnimated += Emoji(emoji.id)
+        } else {
+            EmojiCount++;
+            Emojis += Emoji(emoji.id)
         }
-       }
+    })
+    let Embed = new MessageEmbed()
+        .setTitle(`Emojis em ${message.guild.name}.`)
+        .setDescription(`**Animado [${Animated}]**:\n${EmojisAnimated}`)
+        .setColor(colors.default)
+
+        let EmbedB = new MessageEmbed()
+        .setDescription(`**Normais [${EmojiCount}]**:\n${Emojis}\n\n**Total de emojis [${OverallEmojis}]**`)
+        .setColor(colors.default)
+
+    message.channel.send(Embed)
+    await message.channel.send(EmbedB)
+}
 }
